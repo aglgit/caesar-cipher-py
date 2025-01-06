@@ -1,55 +1,71 @@
-
 class CaesarCipher:
 
     def __init__(self, cipher):
         self.cipher = cipher
+        self.num_alphabet = 29
+        self.lower_norwegian_map = {230: 26, 248: 27, 229: 28}
+        self.lower_norwegian_inv_map = {v: k for k, v in self.lower_norwegian_map.items()}
+        self.upper_norwegian_map = {198: 26, 216: 27, 197: 28}
+        self.upper_norwegian_inv_map = {v: k for k, v in self.upper_norwegian_map.items()}
 
-    def encode_char(self, char):
+    def encode_char(self, char, cipher):
         code_point = ord(char)
-        lower_dict = {230: 26, 248: 27, 229: 28}
-        upper_dict = {198: 26, 216: 27, 197: 28}
-        inv_lower = {v: k for k, v in lower_dict.items()}
-        inv_upper = {v: k for k, v in upper_dict.items()}
-        if code_point >= 65 and code_point <= 90:
-            r = (code_point - 65 + self.cipher ) %29
-            if r in inv_upper:
-                return chr(inv_upper.get(r))
-            else:
-                return chr( r +65)
-        elif code_point >= 97 and code_point <= 122:
-            r = (code_point - 97 + self.cipher ) %29
-            if r in inv_lower:
-                return chr(inv_lower.get(r))
-            else:
-                return chr( r +97)
-        elif code_point in lower_dict:
-            r = (lower_dict.get(code_point) + self.cipher ) %29
-            if r in inv_lower:
-                return chr(inv_lower.get(r))
-            else:
-                return chr( r +97)
-        elif code_point in upper_dict:
-            r = (upper_dict.get(code_point) + self.cipher ) %29
-            if r in inv_upper:
-                return chr(inv_upper.get(r))
-            else:
-                return chr( r +65)
+        if 65 <= code_point <= 90:
+            index = self.map_lower_unicode_to_index(cipher, code_point)
+            return self.map_index_to_lower_char(index)
+        elif 97 <= code_point <= 122:
+            index = self.map_upper_unicode_to_index(cipher, code_point)
+            return self.map_index_to_upper_char(index)
+        elif code_point in self.lower_norwegian_map:
+            index = self.map_lower_norwegian_unicode_to_index(cipher, code_point)
+            return self.map_index_to_upper_char(index)
+        elif code_point in self.upper_norwegian_map:
+            index = self.map_upper_norwegian_unicode_to_index(cipher, code_point)
+            return self.map_index_to_lower_char(index)
         else:
             return chr(code_point)
 
+    def map_lower_unicode_to_index(self, cipher, code_point):
+        return (code_point - 65 + cipher) % self.num_alphabet
+
+    def map_upper_unicode_to_index(self, cipher, code_point):
+        return (code_point - 97 + cipher) % self.num_alphabet
+
+    def map_index_to_lower_char(self, index):
+        if index in self.upper_norwegian_inv_map:
+            return chr(self.upper_norwegian_inv_map.get(index))
+        else:
+            return chr(index + 65)
+
+    def map_index_to_upper_char(self, index):
+        if index in self.lower_norwegian_inv_map:
+            return chr(self.lower_norwegian_inv_map.get(index))
+        else:
+            return chr(index + 97)
+
+    def map_lower_norwegian_unicode_to_index(self, cipher, code_point):
+        return (self.lower_norwegian_map.get(code_point) + cipher) % self.num_alphabet
+
+    def map_upper_norwegian_unicode_to_index(self, cipher, code_point):
+        return (self.upper_norwegian_map.get(code_point) + cipher) % self.num_alphabet
+
     def encode(self, string):
         char_array = list(string)
-        char_array = [self.encode_char(c) for c in char_array]
+        char_array = [self.encode_char(c, self.cipher) for c in char_array]
         return "".join(char_array)
 
     def decode(self, string):
         char_array = list(string)
-        char_array = [self.to_char(self.to_unicode(c) - self.cipher)
-                      for c in char_array]
+        char_array = [self.encode_char(c, -self.cipher) for c in char_array]
         return "".join(char_array)
 
 
 if __name__ == "__main__":
-    c = CaesarCipher(3)
-    res = c.encode2("abcdef")
-    print(res)
+    cipher = 3
+    c = CaesarCipher(cipher)
+    text = "abcdefxyzæøåABCDEFXYZÆØÅ"
+    print(f"Cipher: {cipher}, Text: \n{text}")
+    enc = c.encode(text)
+    print(f"Encoded text: \n{enc}")
+    dec = c.decode(enc)
+    print(f"After decoding: \n{dec}")
