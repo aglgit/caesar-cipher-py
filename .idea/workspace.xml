@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="410e0711-16bd-4170-94b2-351b1e2733ff" name="Changes" comment="Delete old">
+    <list default="true" id="410e0711-16bd-4170-94b2-351b1e2733ff" name="Changes" comment="Formatting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/encoded_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input/input_shift_3.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +28,6 @@
   <component name="ProjectId" id="2rE6MwvsPbKDRus6Wdac8FQQdes" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
@@ -42,7 +40,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/andreaslefdalsnes/Repositories/caesar-cipher-py"
+    "last_opened_file_path": "/Users/andreaslefdalsnes/Repositories/caesar-cipher-py",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -135,7 +134,35 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1736158342669</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Init">
+      <option name="closed" value="true" />
+      <created>1736158538336</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1736158538336</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1736158663079</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1736158663079</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Refactoring">
+      <option name="closed" value="true" />
+      <created>1736158704994</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1736158704994</updated>
+    </task>
+    <task id="LOCAL−00006" summary="Formatting">
+      <option name="closed" value="true" />
+      <created>1736158780071</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1736158780071</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +179,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First version" />
     <MESSAGE value="Delete old" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete old" />
+    <MESSAGE value="Init" />
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Refactoring" />
+    <MESSAGE value="Formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formatting" />
   </component>
 </project>
