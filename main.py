@@ -1,6 +1,6 @@
 from argparse import ArgumentParser, BooleanOptionalAction
 
-from cipher import CaesarCipher
+from caesar_cipher import CaesarCipher
 
 if __name__ == '__main__':
     parser = ArgumentParser(

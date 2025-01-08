@@ -3,6 +3,13 @@
 Command line application that encodes textfiles using
 the [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 
+## Installation
+
+```
+python3 -m venv .venv
+pip install .
+```
+
 ## Usage
 
 Encode file

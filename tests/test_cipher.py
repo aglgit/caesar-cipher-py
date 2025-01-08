@@ -1,5 +1,6 @@
 from unittest import TestCase
-from cipher import CaesarCipher
+
+from caesar_cipher import CaesarCipher
 
 
 class TestCaesarCipher(TestCase):
